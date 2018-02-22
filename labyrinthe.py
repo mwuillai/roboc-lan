@@ -51,26 +51,3 @@ class Labyrinthe:
             self.cases[position_de_x].positionnement_joueur(i)
             self.joueurs.append(position_de_x)
 
-
-""" Ancienne version du labyrinthe à supprimer
-def Labyrinthe(carte, choix):
-    while True:
-        win = False
-        if len(choix) > 1:
-            try:
-                iteration = int(choix[1:])
-            except:
-                iteration = 1
-        else:
-            iteration = 1
-        while iteration > 0:
-            if carte.deplacement(choix[0]) == "WIN":
-                win = True
-            iteration = iteration - 1
-        if win == True:
-            print("Bravo ! C'est gagné")
-            break
-        else:
-            print("-------------------")
-            print(carte)
-            print("-------------------")"""
