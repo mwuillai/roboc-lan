@@ -4,8 +4,6 @@ import os
 
 from random import randint
 
-from objet import Objet
-
 """Ce module contient la classe Carte."""
 
 
