@@ -19,13 +19,23 @@ class Labyrinthe:
     joueurs = []
     cases = {}
 
-    def __init__(self, longueur, case):
+    def __init__(self, longueur, cases):
         """L'initialisation du labyrinthe prend en attribut
         la liste des cases qui le compose. Longueur prend
         la longueur d'une ligne"""
         self.longueur = longueur
-        for i, case in enumerate(case):
+        for i, case in enumerate(cases):
             self.cases[(self.valeur_x(i), self.valeur_y(i))] = Cases(case)
+
+    def __repr__(self):
+        labyrinthe = ""
+        iteration = 0
+        while iteration < len(self.cases):
+            labyrinthe += (
+                self.cases[self.valeur_x(iteration), self.valeur_y(iteration)].
+                valeur)
+            iteration += 1
+        return labyrinthe
 
     def valeur_x(self, i):
         """Méthode permettant de calculer la position x d'une case
