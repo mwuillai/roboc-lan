@@ -3,8 +3,9 @@
 """Ce module contient les fonctions permettant de se déplacer
 dans le labyrinthe"""
 
-from case import cases
 from random import randint
+from case import Cases
+
 
 class Labyrinthe:
 
@@ -24,30 +25,32 @@ class Labyrinthe:
         la longueur d'une ligne"""
         self.longueur = longueur
         for i, case in enumerate(case):
-            self.cases[(self.x(i), self.y(i))] = cases(case)
+            self.cases[(self.valeur_x(i), self.valeur_y(i))] = Cases(case)
 
-    def x(self, i):
+    def valeur_x(self, i):
         """Méthode permettant de calculer la position x d'une case
         en fonction du nombre d'itération réaliser."""
-        x = i - (i // self.longueur) * self.longueur
-        return x
+        valeur_x = i - (i // self.longueur) * self.longueur
+        return valeur_x
 
-    def y(self, i):
+    def valeur_y(self, i):
         """Méthode permettant de calculer la position x d'une case
         en fonction du nombre d'itération réaliser."""
-        y = i // self.longueur
-        return y
+        valeur_y = i // self.longueur
+        return valeur_y
 
     def placement(self, nombre_joueur):
+        """Méthode permettant de placer les joueurs sur la carte.
+        Elle prend en argument le nombre de joueur à placer sur
+        la carte"""
         i = 0  # iteration à réaliser pour placer tous les joueurs
         while i < nombre_joueur:
             i += 1
             emplacement_possible = []
-            for cle in self.cases.keys():
+            for cle in self.cases:
                 if self.cases[cle].valeur == " ":
                     emplacement_possible.append(cle)
             position_de_x = emplacement_possible[randint(
                 0, len(emplacement_possible) - 1)]
             self.cases[position_de_x].positionnement_joueur(i)
             self.joueurs.append(position_de_x)
-

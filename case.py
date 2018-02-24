@@ -6,7 +6,7 @@ contiennent les caractéristiques permettant de
 savoir comment intéragir avec"""
 
 
-class cases:
+class Cases:
     """Class qui permet de générer les cases du
     labyrinthe."""
 
