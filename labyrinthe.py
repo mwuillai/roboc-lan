@@ -19,7 +19,7 @@ class Labyrinthe:
     joueurs = []
     cases = {}
 
-    def __init__(self, longueur, * case):
+    def __init__(self, longueur, case):
         """L'initialisation du labyrinthe prend en attribut
         la liste des cases qui le compose. Longueur prend
         la longueur d'une ligne"""
