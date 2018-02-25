@@ -33,6 +33,8 @@ def main():
             print("erreur recommence la saisie")
             continue
     print(labyrinthe)
+    labyrinthe.placement(1)
+    print(labyrinthe)
 
 
 if __name__ == '__main__':

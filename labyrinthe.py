@@ -62,5 +62,5 @@ class Labyrinthe:
                     emplacement_possible.append(cle)
             position_de_x = emplacement_possible[randint(
                 0, len(emplacement_possible) - 1)]
-            self.cases[position_de_x].positionnement_joueur(i)
+            self.cases[position_de_x].positionnement_joueur()
             self.joueurs.append(position_de_x)
