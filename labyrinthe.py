@@ -64,3 +64,17 @@ class Labyrinthe:
                 0, len(emplacement_possible) - 1)]
             self.cases[position_de_x].positionnement_joueur()
             self.joueurs.append(position_de_x)
+
+    def deplacement(self, direction, joueur):
+        """Méthode de déplacement. direction prend la valeur
+        de la direction souhaité, n, s, o ou e. joueur prend
+        la valeur du numéro du joueur qui doit jouer"""
+
+        position_joueur = self.joueurs[joueur]
+        self.cases[position_joueur].mouvement_sortant
+        valeur_de_x, valeur_de_y = position_joueur
+        if direction == "n":
+            destination_x = valeur_de_x - 1
+            destination = (destination_x, valeur_de_y)
+            if self.cases[destination].mouvement_entrant is False:
+                return "Deplacement impossible"
