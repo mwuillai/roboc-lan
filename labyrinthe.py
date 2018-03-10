@@ -71,7 +71,7 @@ class Labyrinthe:
         la valeur du numéro du joueur qui doit jouer"""
 
         position_joueur = self.joueurs[joueur]
-        self.cases[position_joueur].mouvement_sortant
+        self.case
         valeur_de_x, valeur_de_y = position_joueur
         if direction == "n":
             destination_x = valeur_de_x - 1
