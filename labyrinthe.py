@@ -71,10 +71,34 @@ class Labyrinthe:
         la valeur du numéro du joueur qui doit jouer"""
 
         position_joueur = self.joueurs[joueur]
-        self.case
         valeur_de_x, valeur_de_y = position_joueur
-        if direction == "n":
+        position_joueur = self.cases[(position_joueur)]
+        if direction.lower == "o":
             destination_x = valeur_de_x - 1
             destination = (destination_x, valeur_de_y)
-            if self.cases[destination].mouvement_entrant is False:
+            destination = self.cases[destination]
+            if destination.mouvement_entrant is False:
                 return "Deplacement impossible"
+        if direction.lower == "e":
+            destination_x = valeur_de_x + 1
+            destination = (destination_x, valeur_de_y)
+            destination = self.cases[destination]
+            if destination.mouvement_entrant is False:
+                return "Deplacement impossible"
+        if direction == "n":
+            destination_y = valeur_de_y - 1
+            destination = (valeur_de_x, destination_y)
+            destination = self.cases[destination]
+            if destination.mouvement_entrant is False:
+                return "Deplacement impossible"
+        if direction.lower == "s":
+            destination_y = valeur_de_y + 1
+            destination = (valeur_de_x, destination_y)
+            destination = self.cases[destination]
+            if destination.mouvement_entrant is False:
+                return "Deplacement impossible"
+        else:
+            return "Mauvaise commande"
+        position_joueur.mouvement_sortant()
+        destination.mouvement_entrant()
+        return "Deplacement OK"

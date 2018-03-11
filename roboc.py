@@ -35,7 +35,7 @@ def main():
     print(labyrinthe)
     labyrinthe.placement(1)
     print(labyrinthe)
-    labyrinthe.deplacement("n", 0)
+    print(labyrinthe.deplacement("n", 0))
     print(labyrinthe)
 
 
