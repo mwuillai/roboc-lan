@@ -25,11 +25,9 @@ class Cases:
         Si le mouvement est possible la méthode renvoie True et la
         valeur de la case devient X. valeurPrecedente devient l'ancienne
         valeur de la case avant l'entrée de X sur cette case"""
-        if self._bloquant:
-            return False
-        self.valeur_precedente = self.valeur
-        self.valeur = "X"
-        return True
+        if not self._bloquant:
+            self.valeur_precedente = self.valeur
+            self.valeur = "X"
 
     def mouvement_sortant(self):
         """Méthode permettant d'indiquer qu'un joueur sors de la case"""

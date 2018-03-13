@@ -37,6 +37,10 @@ def main():
     print(labyrinthe)
     print(labyrinthe.deplacement("n", 0))
     print(labyrinthe)
+    print(labyrinthe.deplacement("n", 0))
+    print(labyrinthe)
+    print(labyrinthe.deplacement("n", 0))
+    print(labyrinthe)
 
 
 if __name__ == '__main__':

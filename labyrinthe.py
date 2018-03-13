@@ -73,32 +73,23 @@ class Labyrinthe:
         position_joueur = self.joueurs[joueur]
         valeur_de_x, valeur_de_y = position_joueur
         position_joueur = self.cases[(position_joueur)]
-        if direction.lower == "o":
+        # import pdb; pdb.set_trace()
+        if direction == "o":
             destination_x = valeur_de_x - 1
             destination = (destination_x, valeur_de_y)
-            destination = self.cases[destination]
-            if destination.mouvement_entrant is False:
-                return "Deplacement impossible"
-        if direction.lower == "e":
+        if direction == "e":
             destination_x = valeur_de_x + 1
             destination = (destination_x, valeur_de_y)
-            destination = self.cases[destination]
-            if destination.mouvement_entrant is False:
-                return "Deplacement impossible"
         if direction == "n":
             destination_y = valeur_de_y - 1
             destination = (valeur_de_x, destination_y)
-            destination = self.cases[destination]
-            if destination.mouvement_entrant is False:
-                return "Deplacement impossible"
-        if direction.lower == "s":
+        if direction == "s":
             destination_y = valeur_de_y + 1
             destination = (valeur_de_x, destination_y)
-            destination = self.cases[destination]
-            if destination.mouvement_entrant is False:
-                return "Deplacement impossible"
-        else:
+        if direction not in "nseo":
             return "Mauvaise commande"
+        case_destination = self.cases[destination]
         position_joueur.mouvement_sortant()
-        destination.mouvement_entrant()
-        return "Deplacement OK"
+        case_destination.mouvement_entrant()
+        self.joueurs[joueur] = destination
+        return "Deplacement {}".format(direction)
