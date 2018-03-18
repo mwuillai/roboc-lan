@@ -87,9 +87,11 @@ class Labyrinthe:
             destination_y = valeur_de_y + 1
             destination = (valeur_de_x, destination_y)
         if direction not in "nseo":
-            return "Mauvaise commande"
+            print("Mauvaise commande")
         case_destination = self.cases[destination]
-        position_joueur.mouvement_sortant()
-        case_destination.mouvement_entrant()
-        self.joueurs[joueur] = destination
-        return "Deplacement {}".format(direction)
+        if case_destination.bloquant is False:
+            position_joueur.mouvement_sortant()
+            case_destination.mouvement_entrant()
+            self.joueurs[joueur] = destination
+        else:
+            print("Deplacement impossible")

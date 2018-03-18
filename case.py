@@ -11,23 +11,22 @@ class Cases:
     labyrinthe."""
 
     valeur = " "  # Valeur de la case
-    _bloquant = False  # Indique si la case doit bloquer le joueur
+    bloquant = False  # Indique si la case doit bloquer le joueur
     valeur_precedente = " "  # Cette valeur est la dernière position de la case
     joueur = False  # Devient True si un joueur est sur la case
 
     def __init__(self, valeur):
         self.valeur = valeur
-        if valeur == "O":
-            self._bloquant = True
+        if valeur == "o":
+            self.bloquant = True
 
     def mouvement_entrant(self):
         """Méthode à employer lorsqu'un joueur veux entrer sur la case
         Si le mouvement est possible la méthode renvoie True et la
         valeur de la case devient X. valeurPrecedente devient l'ancienne
         valeur de la case avant l'entrée de X sur cette case"""
-        if not self._bloquant:
-            self.valeur_precedente = self.valeur
-            self.valeur = "X"
+        self.valeur_precedente = self.valeur
+        self.valeur = "X"
 
     def mouvement_sortant(self):
         """Méthode permettant d'indiquer qu'un joueur sors de la case"""
